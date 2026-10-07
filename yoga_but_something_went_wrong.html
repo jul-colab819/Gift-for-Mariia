@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yoga: But Something Went Wrong</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:Georgia,"Times New Roman",serif;background:linear-gradient(135deg,#f4efe5,#e4eee5);color:#38453d;display:flex;justify-content:center;align-items:center;padding:20px}
+.game{width:100%;max-width:650px;min-height:650px;background:rgba(255,255,255,.88);border-radius:28px;padding:35px 28px;box-shadow:0 15px 50px rgba(50,70,55,.15);text-align:center;position:relative;overflow:hidden}
+.screen{display:none;animation:fadeIn .5s ease}.screen.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.emoji{font-size:65px;margin-bottom:10px}h1{font-size:36px;margin:10px 0;color:#526b5a;letter-spacing:1px}h2{font-size:27px;margin:10px 0 20px;color:#526b5a}h3{font-size:20px;margin-top:30px}p{font-size:18px;line-height:1.7}.italic{font-style:italic}
+.quote{margin:25px auto;padding:18px;border-left:4px solid #9bb3a0;background:#f2f5ef;border-radius:8px;font-style:italic;max-width:500px}
+.stats{position:absolute;top:18px;right:22px;background:#e6eee6;padding:8px 14px;border-radius:20px;font-size:14px;color:#526b5a}
+button{display:block;width:100%;max-width:500px;margin:12px auto;padding:16px 20px;border:none;border-radius:16px;background:#dce8dd;color:#38453d;font-family:inherit;font-size:17px;cursor:pointer;transition:all .2s ease}
+button:hover{background:#c8dbc9;transform:translateY(-2px)}
+.main-button{background:#78947d;color:white;font-size:19px;margin-top:30px}.main-button:hover{background:#627d68}
+.feedback{margin:25px auto;padding:20px;background:#f4f1e7;border-radius:16px;max-width:500px;animation:fadeIn .4s ease}.hidden{display:none}
+.level{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:#879d8b;margin-bottom:8px}
+.final-stats{margin:25px auto;padding:20px;background:#eef3ed;border-radius:20px;max-width:450px;text-align:left}.final-stats p{margin:8px 0}.heart{font-size:40px;margin-top:20px}
+@media(max-width:500px){.game{padding:30px 18px;min-height:600px}h1{font-size:29px}h2{font-size:23px}p{font-size:16px}.emoji{font-size:52px}}
+</style>
+</head>
+<body>
+<div class="game">
+<div class="stats">🪷 Zen: <span id="score">0</span></div>
+
+<section id="start" class="screen active">
+<div class="emoji">🧘‍♀️</div>
+<h1>YOGA: BUT SOMETHING WENT WRONG</h1>
+<p class="italic">An extremely serious journey to inner peace.</p>
+<div class="quote">Today you are about to embark on a journey...<br><br>A journey to find:<br><strong>INNER PEACE.</strong></div>
+<p>Your mission is simple:</p>
+<p>🧘 Find your inner balance<br>🌿 Stay calm<br>🐕 Survive Velvet<br>🐈 Survive Carrot<br>🐈 Survive Cat #2<br>❤️ Survive your husband<br>✨ Achieve enlightenment</p>
+<p>Sounds easy, right?</p><p><strong>...It isn't.</strong></p>
+<button class="main-button" onclick="showScreen('level1')">START THE JOURNEY 🪷</button>
+</section>
+
+<section id="level1" class="screen">
+<div class="level">Level 1</div><div class="emoji">🌅</div><h2>THE MORNING OF PEACE</h2>
+<p><strong>11:00 AM</strong></p><p>You wake up.</p><p>Yes.<br><strong>11:00 AM.</strong></p>
+<p>The world has already been awake for hours.</p><p>People have gone to work.<br>Some people have already done their yoga practice.</p>
+<p>But you?<br>You have chosen <strong>peace.</strong></p><p>You stretch.<br>You take a deep breath.</p>
+<p>Today you will:</p><p>🧘‍♀️ Practice yoga<br>🧠 Meditate<br>☕ Have a slow morning<br>🌿 Find your inner balance</p>
+<p>You smile.<br>You are calm.<br>You are peaceful.</p><p>...</p><p><strong>Not alone.</strong></p>
+<p>Something is lying on your bed.</p><h3>What is it?</h3>
+<button onclick="level1Answer('velvet')">🐕 VELVET</button>
+<button onclick="level1Answer('carrot')">🐈 CARROT</button>
+<button onclick="level1Answer('cat2')">🐈 CAT #2</button>
+<div id="level1Feedback" class="feedback hidden"></div>
+</section>
+
+<section id="level2" class="screen">
+<div class="level">Level 2</div><div class="emoji">🧘‍♀️</div><h2>THE PRACTICE</h2>
+<p>You finally make it to your yoga mat.</p><p>You take a deep breath.<br>Inhale.<br>Exhale.<br>Namaste.</p>
+<p>Peace has returned.</p><p>...</p><p>Carrot walks onto your mat.<br>And sits down.</p>
+<p><strong>Exactly where you need to be.</strong></p><h3>What do you do?</h3>
+<button onclick="level2Answer('move')">A. Gently move Carrot.</button>
+<button onclick="level2Answer('around')">B. Practice around Carrot.</button>
+<button onclick="level2Answer('teacher')">C. Accept that Carrot is now your yoga teacher.</button>
+<button onclick="level2Answer('mat')">D. Get another yoga mat.</button>
+<div id="level2Feedback" class="feedback hidden"></div>
+</section>
+
+<section id="level3" class="screen">
+<div class="level">Level 3</div><div class="emoji">🐕</div><h2>KARMA COMES BACK</h2>
+<p>Your yoga practice is going beautifully.</p><p>You feel calm.<br>Centered.<br>Present.<br>Connected to the universe.</p>
+<p>Then...</p><p>You look at Velvet.<br>Velvet looks at you.<br>Velvet looks at the leash.<br>Then back at you.</p>
+<p><strong>You understand.</strong></p><p>It is time for a walk.</p><h3>What does a true yogi do?</h3>
+<button onclick="level3Answer('ignore')">A. Pretend not to notice.</button>
+<button onclick="level3Answer('five')">B. Say "five more minutes."</button>
+<button onclick="level3Answer('walk')">C. Take Velvet for a walk.</button>
+<button onclick="level3Answer('meditation')">D. Offer Velvet a meditation session instead.</button>
+<div id="level3Feedback" class="feedback hidden"></div>
+</section>
+
+<section id="level4" class="screen">
+<div class="level">Level 4</div><div class="emoji">☕</div><h2>THE SILENCE</h2>
+<p>You are back home.</p><p>Velvet is happy.<br>Carrot and Cat #2 are plotting something.</p>
+<p>But for a moment...</p><p><strong>Everything is quiet.</strong></p>
+<p>You make yourself a cup of tea.<br>You sit down.<br>You close your eyes.</p>
+<p>You breathe in.<br>You breathe out.</p><p>Silence.<br>Peace.<br>Inner balance.</p><p>...</p>
+<p><strong>"Honey?"</strong></p><p>Your husband has entered the room.</p>
+<div class="quote">"What are we having for dinner?"</div>
+<h3>What do you do?</h3>
+<button onclick="level4Answer()">A. "I don't know."</button><button onclick="level4Answer()">B. "What do you want?"</button><button onclick="level4Answer()">C. "I'm meditating."</button><button onclick="level4Answer()">D. "Food."</button>
+<div id="level4Feedback" class="feedback hidden"></div>
+</section>
+
+<section id="level5" class="screen">
+<div class="level">Level 5</div><div class="emoji">🐈🐈</div><h2>THE BATTLE OF THE COUCH</h2>
+<p>You finally sit down.</p><p>Carrot is on your right.<br>Cat #2 is on your left.<br>Velvet is lying at your feet.<br>Your husband is somewhere nearby.</p>
+<p>Everything is perfect.</p><p>You think:</p><div class="quote">"This is it.<br>This is inner peace."</div>
+<p>Then...</p><p>Carrot looks at Cat #2.<br>Cat #2 looks at Carrot.</p><p><strong>Something is about to happen.</strong></p>
+<h3>What do you do?</h3>
+<button onclick="level5Answer('intervene')">A. Intervene.</button><button onclick="level5Answer('separate')">B. Separate the cats.</button><button onclick="level5Answer('leave')">C. Leave the room.</button><button onclick="level5Answer('accept')">D. Accept the chaos.</button>
+<div id="level5Feedback" class="feedback hidden"></div>
+</section>
+
+<section id="level6" class="screen">
+<div class="level">Level 6 - Final Test</div><div class="emoji">🌙</div><h2>THE FINAL TEST</h2>
+<p>You have come a long way.</p><p>Now there is only one thing left to do.</p><p><strong>Find complete inner peace.</strong></p>
+<div class="quote">Take a deep breath.<br><br>Close your eyes.<br><br>Imagine a place where there are:<br><br>No notifications.<br>No deadlines.<br>No emails.<br>No responsibilities.<br>No cats waking you up at 5 AM.<br>No Velvet demanding a walk.<br>No one asking:<br><strong>"What's for dinner?"</strong><br><br>Just silence.<br>Peace.<br>Stillness.</div>
+<p>You breathe in.<br>You breathe out.</p><p>You are finally there.</p><h3>🪷 ENLIGHTENMENT</h3>
+<button class="main-button" onclick="enlightenment()">I HAVE REACHED ENLIGHTENMENT</button>
+<div id="enlightenmentFeedback" class="feedback hidden"></div>
+</section>
+
+<section id="final" class="screen">
+<div class="emoji">🏆</div><h1>YOU SURVIVED.</h1><p>You survived:</p>
+<p>🐕 Velvet<br>🐈 Carrot<br>🐈 Cat #2<br>❤️ Your Husband<br>🧘‍♀️ Yoga<br>☕ The Morning<br>🌪️ Complete Domestic Chaos</p>
+<p>And somehow...</p><h2>You remained yourself.</h2><h1>✨ ULTIMATE YOGINI ✨</h1>
+<div class="final-stats"><p>🪷 <strong>Zen:</strong> <span id="finalScore">0</span></p><p>✨ <strong>Karma:</strong> +108</p><p>🐈 <strong>Cat Approval:</strong> +1</p><p>🐕 <strong>Velvet Love:</strong> +100</p><p>❤️ <strong>Husband Support:</strong> Confirmed</p><p>🧘‍♀️ <strong>Inner Peace:</strong> Questionable but improving</p></div>
+<h2>🌿 YOUR REWARD</h2><p>You officially have permission to:</p><p>Drink your tea.<br>Take a deep breath.<br>Hug your animals.<br>Hug your husband.<br>Do absolutely nothing for a while.</p>
+<div class="quote">You don't have to have everything under control to have a beautiful life.<br><br>Sometimes Carrot will sit on your yoga mat.<br><br>Sometimes Velvet will decide when you wake up.<br><br>Sometimes your husband will ask what's for dinner.<br><br>And that's okay.<br><br>Because somewhere between all the chaos...<br><strong>there is your life.</strong><br><br>And it's pretty wonderful. ❤️</div>
+<div class="heart">❤️</div><button class="main-button" onclick="gift()">CLAIM YOUR GIFT 🎁</button>
+</section>
+
+<section id="gift" class="screen">
+<div class="emoji">🎁</div><h1>YOU DID IT!</h1><p>Your journey is complete.</p><p>And now...</p><h2>Your real gift is waiting for you. ❤️</h2>
+<div class="quote">Made especially for you, with love, laughter, and a little bit of chaos.</div>
+<p>🧘‍♀️ Keep practicing.<br>🐈 Keep loving Carrot and Cat #2.<br>🐕 Keep walking Velvet.<br>❤️ Keep loving your human.<br>🌿 And don't forget to enjoy the journey.</p><h1>🪷</h1>
+</section>
+</div>
+
+<script>
+let score=0;
+function addScore(points){score+=points;document.getElementById("score").textContent=score}
+function showScreen(id){document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));document.getElementById(id).classList.add("active");window.scrollTo({top:0,behavior:"smooth"})}
+
+function level1Answer(answer){
+const f=document.getElementById("level1Feedback"); addScore(5);
+if(answer==="velvet"){f.innerHTML=`<strong>🐕 CLOSE...</strong><br><br>Velvet isn't lying on your bed.<br><br>Velvet is standing next to your bed and staring at you.<br><br>You know what that means.<br><br><strong>Walkies.</strong><br><br>+5 Zen Points<br><br><button onclick="showScreen('level2')">CONTINUE →</button>`}
+else{f.innerHTML=`<strong>🐈 WRONG.</strong><br><br>It was ${answer==="carrot"?"Carrot":"Cat #2"}.<br><br>Apparently, while you were sleeping until 11 AM, they had a very busy morning.<br><br>They have no idea what you are planning to do today.<br><br>And frankly...<br><strong>they don't care.</strong><br><br>+5 Zen Points<br><br><button onclick="showScreen('level2')">CONTINUE →</button>`}
+f.classList.remove("hidden")}
+
+function level2Answer(answer){
+const f=document.getElementById("level2Feedback");
+if(answer==="teacher"){addScore(10);f.innerHTML=`<strong>🪷 WISE CHOICE.</strong><br><br>You have discovered an ancient yogic principle:<br><br><em>Carrot is always right.</em><br><br>+10 Zen Points<br><br><button onclick="showScreen('level3')">CONTINUE →</button>`}
+else if(answer==="move"){addScore(-3);f.innerHTML=`<strong>😾 Carrot disagrees.</strong><br><br>You try to move Carrot.<br>The cat looks at you.<br>You look at the cat.<br><br>Carrot has won.<br><br>-3 Zen Points<br><br><button onclick="showScreen('level3')">ACCEPT DEFEAT →</button>`}
+else if(answer==="around"){addScore(-2);f.innerHTML=`<strong>🧘‍♀️ NICE TRY.</strong><br><br>You practice around Carrot.<br><br>You finally find your balance...<br>and Carrot moves.<br><br>-2 Zen Points<br><br><button onclick="showScreen('level3')">CONTINUE →</button>`}
+else{addScore(1);f.innerHTML=`<strong>🤔 INTERESTING.</strong><br><br>You now have two yoga mats.<br>And one cat sitting between them.<br><br>The situation has somehow become worse.<br><br>+1 Zen Point for trying.<br><br><button onclick="showScreen('level3')">CONTINUE →</button>`}
+f.classList.remove("hidden")}
+
+function level3Answer(answer){
+const f=document.getElementById("level3Feedback");
+if(answer==="walk"){addScore(10);f.innerHTML=`<strong>🌿 WELL DONE.</strong><br><br>You have accepted reality as it is.<br><br>And reality is:<br><br><em>Velvet decides when your morning begins.</em><br><br>+10 Karma<br><br><button onclick="showScreen('level4')">TAKE THE WALK →</button>`}
+else if(answer==="meditation"){f.innerHTML=`<strong>🧘‍♀️ YOU TRIED.</strong><br><br>You sit down.<br>You close your eyes.<br>You invite Velvet to breathe deeply.<br><br>Velvet looks at you.<br>Velvet brings you the leash.<br><br><strong>Velvet has rejected your spiritual journey.</strong><br><br><button onclick="showScreen('level4')">ACCEPT REALITY →</button>`}
+else{addScore(-2);f.innerHTML=`<strong>🐕 Velvet is still staring.</strong><br><br>You have chosen poorly.<br><br>The leash remains on the floor.<br>Velvet remains determined.<br><br>-2 Zen Points<br><br><button onclick="showScreen('level4')">FINE. LET'S GO. →</button>`}
+f.classList.remove("hidden")}
+
+function level4Answer(){addScore(5);const f=document.getElementById("level4Feedback");f.innerHTML=`<strong>❤️ THERE IS NO CORRECT ANSWER.</strong><br><br>Because regardless of what you say...<br><br>He will probably ask again in 20 minutes.<br><br><strong>+5 Family Karma</strong><br><br><button onclick="showScreen('level5')">ACCEPT YOUR DESTINY →</button>`;f.classList.remove("hidden")}
+
+function level5Answer(answer){
+const f=document.getElementById("level5Feedback");
+if(answer==="accept"){addScore(20);f.innerHTML=`<strong>🪷 YOU HAVE LEARNED.</strong><br><br>You finally understand the true meaning of Zen.<br><br><em>Zen is not having a quiet life.<br><br>Zen is sitting peacefully while absolute chaos unfolds around you.</em><br><br><strong>+20 Zen Points</strong><br><br><button onclick="showScreen('level6')">CONTINUE →</button>`}
+else{addScore(-2);f.innerHTML=`<strong>🐈 WRONG MOVE.</strong><br><br>Carrot and Cat #2 have noticed your involvement.<br><br>The situation is now worse.<br><br><strong>Never interfere with cat politics.</strong><br><br>-2 Zen Points<br><br><button onclick="showScreen('level6')">RUN AWAY →</button>`}
+f.classList.remove("hidden")}
+
+function enlightenment(){const f=document.getElementById("enlightenmentFeedback");f.innerHTML=`<strong>🪷 YOU HAVE REACHED ENLIGHTENMENT.</strong><br><br>You breathe in.<br>You breathe out.<br><br>You are finally at peace.<br><br>...<br><br><strong>🐈 MEEEEOW.</strong><br><br>💥 <strong>ENLIGHTENMENT CANCELLED.</strong><br><br><button onclick="finishGame()">ACCEPT YOUR FATE →</button>`;f.classList.remove("hidden")}
+function finishGame(){document.getElementById("finalScore").textContent=score;showScreen("final")}
+function gift(){showScreen("gift")}
+</script>
+</body>
+</html>
